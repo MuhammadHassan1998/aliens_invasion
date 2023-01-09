@@ -1,10 +1,4 @@
-import logging
-
 import pygame
-
-
-log = logging.getLogger("logger")
-log.setLevel(logging.ERROR)
 
 
 class Ship:
@@ -16,24 +10,19 @@ class Ship:
         # set the settings
         self.settings = settings
         # get the image
-        try:
-            self.image = pygame.image.load("alien_invasion/images/ship.bmp")
-        except FileNotFoundError:
-            log.error("Can not find the ship image")
-            raise FileNotFoundError
-        else:
-            self.rect = self.image.get_rect()
-            self.screen_rect = screen.get_rect()
+        self.image = pygame.image.load("alien_invasion/images/ship.bmp")
+        self.rect = self.image.get_rect()
+        self.screen_rect = screen.get_rect()
 
-            self.rect.centerx = self.screen_rect.centerx
-            self.rect.bottom = self.screen_rect.bottom
+        self.rect.centerx = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
 
-            self.center = float(self.rect.centerx)
-            # Moving Flags
-            self.moving_right = False
-            self.moving_left = False
-            self.moving_up = False
-            self.moving_down = False
+        self.center = float(self.rect.centerx)
+        # Moving Flags
+        self.moving_right = False
+        self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
 
     def blitme(self) -> None:
         # Draw image on bottom of the screen
