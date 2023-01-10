@@ -49,8 +49,14 @@ def run_game():
             bullets=bullets,
             aliens=aliens,
         )
-        gf.update_bullets(bullets=bullets)
-        gf.update_aliens(aliens=aliens)
+        gf.update_bullets(
+            settings=game_settings,
+            screen=screen,
+            ship=ship,
+            bullets=bullets,
+            aliens=aliens,
+        )
+        gf.update_aliens(settings=game_settings, aliens=aliens)
 
 
 run_game()
